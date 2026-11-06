@@ -4,7 +4,7 @@
  *
  * Used for both single and index/archive/search.
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 ?>
@@ -43,7 +43,7 @@
 
 	<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-date">
-			<?php resonar_entry_date(); ?>
+			<?php mag10011_entry_date(); ?>
 		</div><!-- .entry-date -->
 	<?php endif; ?>
 
@@ -54,7 +54,7 @@
 	        if ( strpos( $post->post_content, '<!--more' ) ) {
 	            the_content();
 				# translators: %s: Name of current post.
-				#the_content( sprintf( wp_kses( __( 'Continue reading %s', 'resonar' ), array( 'span' => array( 'class' => array() ) ) ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
+				#the_content( sprintf( wp_kses( __( 'Continue reading %s', '10011mag' ), array( 'span' => array( 'class' => array() ) ) ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
 	        } else {
 	            the_excerpt();
 	        }

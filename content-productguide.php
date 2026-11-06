@@ -4,7 +4,7 @@
  *
  * Used for both single and index/archive/search.
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 ?>

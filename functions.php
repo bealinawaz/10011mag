@@ -2,7 +2,7 @@
 /**
  * Resonar functions and definitions
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 
@@ -13,7 +13,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 1088;
 }
 
-if ( ! function_exists( 'resonar_setup' ) ) :
+if ( ! function_exists( 'mag10011_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -21,15 +21,10 @@ if ( ! function_exists( 'resonar_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function resonar_setup() {
+function mag10011_setup() {
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Resonar, use a find and replace
-	 * to change 'dev' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'dev', get_template_directory() . '/languages' );
+	// Make the theme available for translation. Translations can be added to the /languages/ directory.
+	load_theme_textdomain( '10011mag', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -49,13 +44,13 @@ function resonar_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 256, 256, true );
-	add_image_size( 'resonar-large', 2000, 1500, true  );
+	add_image_size( 'mag10011-large', 2000, 1500, true  );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu',      'dev' ),
-		'social'  => __( 'Social Links Menu', 'dev' ),
-		'secondary'  => __( 'Secondary Menu', 'dev' ),
+		'primary' => __( 'Primary Menu',      '10011mag' ),
+		'social'  => __( 'Social Links Menu', '10011mag' ),
+		'secondary'  => __( 'Secondary Menu', '10011mag' ),
 	) );
 
 	/*
@@ -67,31 +62,31 @@ function resonar_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'resonar_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'mag10011_custom_background_args', array(
 		'default-color'    => 'ffffff',
-		'wp-head-callback' => 'resonar_custom_background_cb'
+		'wp-head-callback' => 'mag10011_custom_background_cb'
 	) ) );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'editor-style.css', 'genericons/genericons.css', resonar_fonts_url() ) );
+	add_editor_style( array( 'editor-style.css', 'genericons/genericons.css', mag10011_fonts_url() ) );
 }
-endif; // resonar_setup
-add_action( 'after_setup_theme', 'resonar_setup' );
+endif; // mag10011_setup
+add_action( 'after_setup_theme', 'mag10011_setup' );
 
-if ( ! function_exists( 'resonar_custom_background_cb' ) ) :
+if ( ! function_exists( 'mag10011_custom_background_cb' ) ) :
 /**
  * Add a wp-head callback to the custom background
  *
  * @since Resonar 1.0.3
  */
-function resonar_custom_background_cb() {
+function mag10011_custom_background_cb() {
 	$background_image = get_background_image();
 	$color = get_background_color();
 	if ( ! $background_image && ! $color ) { return; } ?>
-	<style type="text/css" id="resonar-custom-background-css">
+	<style type="text/css" id="mag10011-custom-background-css">
 	<?php if ( ! empty ( $background_image ) ) { ?>
 			body.custom-background {
 				background-image: url(<?php echo esc_url( $background_image ); ?>);
@@ -129,28 +124,28 @@ function resonar_custom_background_cb() {
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function resonar_widgets_init() {
+function mag10011_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Widget Area', 'dev' ),
+		'name'          => __( 'Widget Area', '10011mag' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'dev' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar.', '10011mag' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => __( 'Sidebar Area', 'dev' ),
+		'name'          => __( 'Sidebar Area', '10011mag' ),
 		'id'            => 'sidebar-2',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'dev' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar.', '10011mag' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-} add_action( 'widgets_init', 'resonar_widgets_init' );
+} add_action( 'widgets_init', 'mag10011_widgets_init' );
 
-if ( ! function_exists( 'resonar_fonts_url' ) ) :
+if ( ! function_exists( 'mag10011_fonts_url' ) ) :
 /**
  * Register Google fonts for Resonar.
  *
@@ -158,28 +153,28 @@ if ( ! function_exists( 'resonar_fonts_url' ) ) :
  *
  * @return string Google fonts URL for the theme.
  */
-function resonar_fonts_url() {
+function mag10011_fonts_url() {
 	$fonts_url = '';
 	$fonts     = array();
 	$subsets   = 'latin,latin-ext';
 
 	/* translators: If there are characters in your language that are not supported by Libre Baskerville, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Libre Baskerville font: on or off', 'dev' ) ) {
+	if ( 'off' !== _x( 'on', 'Libre Baskerville font: on or off', '10011mag' ) ) {
 		$fonts[] = 'Libre Baskerville:400,700,400italic';
 	}
 
 	/* translators: If there are characters in your language that are not supported by Lato, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'dev' ) ) {
+	if ( 'off' !== _x( 'on', 'Lato font: on or off', '10011mag' ) ) {
 		$fonts[] = 'Lato:400,700,900,400italic,700italic,900italic';
 	}
 
 	/* translators: If there are characters in your language that are not supported by Playfair Display, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', 'dev' ) ) {
+	if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', '10011mag' ) ) {
 		$fonts[] = 'Playfair Display:400,700,400italic,700italic';
 	}
 
 	/* translators: If there are characters in your language that are not supported by Inconsolata, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', 'dev' ) ) {
+	if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', '10011mag' ) ) {
 		$fonts[] = 'Inconsolata:400';
 	}
 
@@ -187,7 +182,7 @@ function resonar_fonts_url() {
 	 * Translators: To add an additional character subset specific to your language,
 	 * translate this to 'cyrillic'. Do not translate into your own language.
 	 */
-	$subset = _x( 'no-subset', 'Add new subset (cyrillic)', 'dev' );
+	$subset = _x( 'no-subset', 'Add new subset (cyrillic)', '10011mag' );
 
 	if ( 'cyrillic' == $subset ) {
 		$subsets .= ',cyrillic';
@@ -211,26 +206,26 @@ endif;
  *
  * @since Resonar 1.0
  */
-function resonar_javascript_detection() {
+function mag10011_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 	?><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><?php
 }
-add_action( 'wp_head', 'resonar_javascript_detection', 0 );
+add_action( 'wp_head', 'mag10011_javascript_detection', 0 );
 
 /**
  * Enqueue scripts and styles.
  *
  * @since Resonar 1.0
  */
-function resonar_scripts() {
+function mag10011_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'resonar-fonts', resonar_fonts_url(), array(), null );
+	wp_enqueue_style( 'mag10011-fonts', mag10011_fonts_url(), array(), null );
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.3' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'resonar-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mag10011-style', get_stylesheet_uri() );
 
 	// New Style 2
 	wp_enqueue_style( 'style2', get_template_directory_uri() . '/style2.css', array(), '1.0' );
@@ -238,39 +233,39 @@ function resonar_scripts() {
 	// Jetpack CSS
 	wp_enqueue_style( 'jetpack-css', get_template_directory_uri() . '/jetpack.css', array(), '1.0' );
 
-	wp_enqueue_script( 'resonar-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20150302', true );
+	wp_enqueue_script( 'mag10011-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20150302', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'resonar-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150302' );
+		wp_enqueue_script( 'mag10011-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150302' );
 	}
 
-	wp_enqueue_script( 'resonar-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150302', true );
+	wp_enqueue_script( 'mag10011-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150302', true );
 
-	wp_localize_script( 'resonar-script', 'screenReaderText', array(
-		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'dev' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'dev' ) . '</span>',
+	wp_localize_script( 'mag10011-script', 'screenReaderText', array(
+		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', '10011mag' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', '10011mag' ) . '</span>',
 	) );
 
-	wp_localize_script( 'resonar-script', 'toggleButtonText', array(
-		'menu'    => __( 'Menu', 'dev' ),
-		'widgets' => __( 'Widgets', 'dev' ),
-		'both'    => __( 'Menu &amp; Widgets', 'dev' ),
+	wp_localize_script( 'mag10011-script', 'toggleButtonText', array(
+		'menu'    => __( 'Menu', '10011mag' ),
+		'widgets' => __( 'Widgets', '10011mag' ),
+		'both'    => __( 'Menu &amp; Widgets', '10011mag' ),
 	) );
-} add_action( 'wp_enqueue_scripts', 'resonar_scripts' );
+} add_action( 'wp_enqueue_scripts', 'mag10011_scripts' );
 
 /**
  * Enqueue Google fonts style to admin screen for custom header display.
  *
  * @since Resonar 1.0
  */
-function resonar_admin_fonts() {
-	wp_enqueue_style( 'resonar-fonts', resonar_fonts_url(), array(), null );
+function mag10011_admin_fonts() {
+	wp_enqueue_style( 'mag10011-fonts', mag10011_fonts_url(), array(), null );
 }
-add_action( 'admin_print_scripts-appearance_page_custom-header', 'resonar_admin_fonts' );
+add_action( 'admin_print_scripts-appearance_page_custom-header', 'mag10011_admin_fonts' );
 
 /**
  * Add a `screen-reader-text` class to the search form's submit button.
@@ -280,10 +275,10 @@ add_action( 'admin_print_scripts-appearance_page_custom-header', 'resonar_admin_
  * @param string $html Search form HTML.
  * @return string Modified search form HTML.
  */
-function resonar_search_form_modify( $html ) {
+function mag10011_search_form_modify( $html ) {
 	return str_replace( 'class="search-submit"', 'class="search-submit screen-reader-text"', $html );
 }
-add_filter( 'get_search_form', 'resonar_search_form_modify' );
+add_filter( 'get_search_form', 'mag10011_search_form_modify' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -291,7 +286,7 @@ add_filter( 'get_search_form', 'resonar_search_form_modify' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function resonar_body_classes( $classes ) {
+function mag10011_body_classes( $classes ) {
 	if ( is_singular() ) {
 		$classes[] = 'single';
 	}
@@ -302,7 +297,7 @@ function resonar_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'resonar_body_classes' );
+add_filter( 'body_class', 'mag10011_body_classes' );
 
 /**
  * Implement the Custom Header feature.
@@ -381,17 +376,17 @@ function buy_guides_init() {
 	) );*/
 	
 	$labels = array(
-		'name'              => _x( 'Gift Guides', 'taxonomy general name', 'textdomain' ),
-		'singular_name'     => _x( 'Gift Guide', 'taxonomy singular name', 'textdomain' ),
-		'search_items'      => __( 'Search Gift Guides', 'textdomain' ),
-		'all_items'         => __( 'All Gift Guides', 'textdomain' ),
-		'parent_item'       => __( 'Parent Gift Guide', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Gift Guide:', 'textdomain' ),
-		'edit_item'         => __( 'Edit Gift Guide', 'textdomain' ),
-		'update_item'       => __( 'Update Gift Guide', 'textdomain' ),
-		'add_new_item'      => __( 'Add New Gift Guide', 'textdomain' ),
-		'new_item_name'     => __( 'New Gift Guide', 'textdomain' ),
-		'menu_name'         => __( 'Gift Guide', 'textdomain' ),
+		'name'              => _x( 'Gift Guides', 'taxonomy general name', '10011mag' ),
+		'singular_name'     => _x( 'Gift Guide', 'taxonomy singular name', '10011mag' ),
+		'search_items'      => __( 'Search Gift Guides', '10011mag' ),
+		'all_items'         => __( 'All Gift Guides', '10011mag' ),
+		'parent_item'       => __( 'Parent Gift Guide', '10011mag' ),
+		'parent_item_colon' => __( 'Parent Gift Guide:', '10011mag' ),
+		'edit_item'         => __( 'Edit Gift Guide', '10011mag' ),
+		'update_item'       => __( 'Update Gift Guide', '10011mag' ),
+		'add_new_item'      => __( 'Add New Gift Guide', '10011mag' ),
+		'new_item_name'     => __( 'New Gift Guide', '10011mag' ),
+		'menu_name'         => __( 'Gift Guide', '10011mag' ),
 	);
 
 	$args = array(

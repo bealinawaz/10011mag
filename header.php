@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 ?><!DOCTYPE html>
@@ -55,7 +55,7 @@
 
 <body <?php body_class($body_class); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'resonar' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '10011mag' ); ?></a>
 
 	<?php /*if ( get_header_image() ) : ?>
 		<div class="header-image">
@@ -67,7 +67,7 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
-			<?php resonar_the_site_logo(); ?>
+			<?php mag10011_the_site_logo(); ?>
 
 			<?php if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

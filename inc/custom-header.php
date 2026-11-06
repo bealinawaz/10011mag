@@ -5,37 +5,37 @@
  *
  * You can add an optional custom header image to header.php like so ...
  *
- * @package Resonar
+ * @package 10011mag
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses resonar_header_style()
- * @uses resonar_admin_header_style()
- * @uses resonar_admin_header_image()
+ * @uses mag10011_header_style()
+ * @uses mag10011_admin_header_style()
+ * @uses mag10011_admin_header_image()
  */
-function resonar_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'resonar_custom_header_args', array(
+function mag10011_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'mag10011_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '232323',
 		'width'                  => 2000,
 		'height'                 => 320,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'resonar_header_style',
-		'admin-head-callback'    => 'resonar_admin_header_style',
-		'admin-preview-callback' => 'resonar_admin_header_image',
+		'wp-head-callback'       => 'mag10011_header_style',
+		'admin-head-callback'    => 'mag10011_admin_header_style',
+		'admin-preview-callback' => 'mag10011_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'resonar_custom_header_setup' );
+add_action( 'after_setup_theme', 'mag10011_custom_header_setup' );
 
-if ( ! function_exists( 'resonar_header_style' ) ) :
+if ( ! function_exists( 'mag10011_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see resonar_custom_header_setup().
+ * @see mag10011_custom_header_setup().
  */
-function resonar_header_style() {
+function mag10011_header_style() {
 	$header_text_color = get_header_textcolor();
 	$header_image = get_header_image();
 
@@ -71,15 +71,15 @@ function resonar_header_style() {
 	</style>
 	<?php
 }
-endif; // resonar_header_style
+endif; // mag10011_header_style
 
-if ( ! function_exists( 'resonar_admin_header_style' ) ) :
+if ( ! function_exists( 'mag10011_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see resonar_custom_header_setup().
+ * @see mag10011_custom_header_setup().
  */
-function resonar_admin_header_style() {
+function mag10011_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -131,15 +131,15 @@ function resonar_admin_header_style() {
 	</style>
 <?php
 }
-endif; // resonar_admin_header_style
+endif; // mag10011_admin_header_style
 
-if ( ! function_exists( 'resonar_admin_header_image' ) ) :
+if ( ! function_exists( 'mag10011_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see resonar_custom_header_setup().
+ * @see mag10011_custom_header_setup().
  */
-function resonar_admin_header_image() {
+function mag10011_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -155,4 +155,4 @@ function resonar_admin_header_image() {
 	</div>
 <?php
 }
-endif; // resonar_admin_header_image
+endif; // mag10011_admin_header_image

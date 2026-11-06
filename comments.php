@@ -5,7 +5,7 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 
@@ -24,12 +24,12 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'resonar' ),
+				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', '10011mag' ),
 					number_format_i18n( get_comments_number() ), get_the_title() );
 			?>
 		</h2>
 
-		<?php resonar_comment_nav(); ?>
+		<?php mag10011_comment_nav(); ?>
 
 		<ol class="comment-list">
 			<?php
@@ -41,7 +41,7 @@ if ( post_password_required() ) {
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php resonar_comment_nav(); ?>
+		<?php mag10011_comment_nav(); ?>
 
 	<?php endif; // have_comments() ?>
 
@@ -49,7 +49,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'resonar' ); ?></p>
+		<p class="no-comments"><?php _e( 'Comments are closed.', '10011mag' ); ?></p>
 	<?php endif; ?>
 
 	<?php comment_form(); ?>

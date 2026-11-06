@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts and attachments
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 
@@ -24,11 +24,11 @@ get_header(); ?>
 
 			// Previous/next post navigation.
 			the_post_navigation( array(
-				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'resonar' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Next post:', 'resonar' ) . '</span> ' .
+				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', '10011mag' ) . '</span> ' .
+					'<span class="screen-reader-text">' . __( 'Next post:', '10011mag' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
-				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'resonar' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Previous post:', 'resonar' ) . '</span> ' .
+				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', '10011mag' ) . '</span> ' .
+					'<span class="screen-reader-text">' . __( 'Previous post:', '10011mag' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
 			) );
 
