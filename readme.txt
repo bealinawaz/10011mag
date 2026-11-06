@@ -1,14 +1,15 @@
 === 10011MAG ===
 
 Contributors: bealinawaz
-Tags: blue, white, light, one-column, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, infinite-scroll, rtl-language-support, site-logo, sticky-post, translation-ready
-
-Requires at least: 6.0
-Tested up to: 6.0
+Tags: blog, news, one-column, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, rtl-language-support, sticky-post, translation-ready, e-commerce
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 2.0.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-An elegant blog theme featuring full-screen featured images.
+A magazine and product-guide theme with full-screen featured images, based on Resonar by Automattic.
 
 == Description ==
 
@@ -79,6 +80,16 @@ Social networks that aren't currently supported will be indicated by a generic s
 
 == Changelog ==
 
+See CHANGELOG.md.
+
+== Copyright ==
+
+10011MAG WordPress Theme, (C) 2023-2026 Ali Nawaz.
+10011MAG is distributed under the terms of the GNU GPL v2 or later.
+
+10011MAG is based on Resonar, (C) 2015 Automattic, Inc. (https://wordpress.com/theme/resonar), distributed under the terms of the GNU GPL v2 or later.
+
 == Credits ==
 
-* Genericons: font by Automattic (http://automattic.com/), licensed under [GPL2](https://www.gnu.org/licenses/gpl-2.0.html)
+* Resonar theme by Automattic, https://automattic.com/, licensed under GPL v2 or later.
+* Genericons icon font by Automattic, https://automattic.com/, licensed under GPL v2 or later.
