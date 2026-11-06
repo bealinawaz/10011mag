@@ -13,7 +13,7 @@
 - Author links contained HTML inside `href`.
 - `datetime` attributes now use ISO 8601 dates, and the "updated" date shows the last-modified date.
 - Fatal error on PHP 8 when a post has no categories.
-- JavaScript error in the header: the inline script ran before jQuery loaded. Because of this the sticky widget area never activated. It now works as originally intended on the index, single, page, gift guide and WooCommerce pages.
+- JavaScript TypeError on scroll on pages without the fixed widget area (search, category, 404). The sticky widget area works as before.
 - PHP warning for an undefined variable in `header.php`.
 - Empty logo `<img>` when no custom logo was set.
 - Duplicate `id="main"` on gift guide archives.
@@ -25,7 +25,7 @@
 - Removed 141 WooCommerce template overrides. They were unmodified copies of WooCommerce 3.4/3.5 templates, so WooCommerce now uses its current templates.
 - One text domain (`10011mag`) and one prefix (`mag10011_`) throughout. A new `languages/10011mag.pot` replaces Resonar's translation files.
 - Fonts are self-hosted in `/fonts/` instead of loading from Google Fonts.
-- Inline CSS and JS moved into `css/overrides.css` and `js/fixed-nav.js`. Assets are versioned with the theme version.
+- Inline CSS and JS printed in `header.php` and `wp_head` moved into enqueued `css/overrides.css` and `js/fixed-nav.js`. Assets are versioned with the theme version.
 - Added `wp_body_open()`, `responsive-embeds`, `customize-selective-refresh-widgets` and HTML5 `script`/`style`/`navigation-widgets` support.
 - The `resonar-large` image size is now `mag10011-large`. Regenerate thumbnails on existing sites.
 - `screenshot.png` (556 KB) replaced by `screenshot.jpg` (78 KB).
