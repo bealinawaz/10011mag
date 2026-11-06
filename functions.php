@@ -40,7 +40,7 @@ function mag10011_setup() {
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 * @link https://developer.wordpress.org/reference/functions/add_theme_support/
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 256, 256, true );
@@ -57,9 +57,32 @@ function mag10011_setup() {
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
+	add_theme_support(
+		'html5',
+		array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'script', 'style', 'navigation-widgets' )
+	);
+
+	// Embeds keep their aspect ratio, and widgets refresh in the Customizer without a full reload.
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	// Site logo.
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 100,
+			'width'       => 400,
+			'flex-height' => true,
+			'flex-width'  => true,
+			'header-text' => array( 'site-title', 'site-description' ),
+		)
+	);
+
+	// WooCommerce and its product gallery features.
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'mag10011_custom_background_args', array(
@@ -67,10 +90,8 @@ function mag10011_setup() {
 		'wp-head-callback' => 'mag10011_custom_background_cb'
 	) ) );
 
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors, icons, and column width.
-	 */
+	// Style the editor to resemble the front end: fonts, colors, icons and column width.
+	add_theme_support( 'editor-styles' );
 	add_editor_style( array( 'editor-style.css', 'genericons/genericons.css', mag10011_fonts_url() ) );
 }
 endif; // mag10011_setup
@@ -224,14 +245,19 @@ function mag10011_scripts() {
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.3' );
 
+	$version = wp_get_theme( get_template() )->get( 'Version' );
+
 	// Load our main stylesheet.
-	wp_enqueue_style( 'mag10011-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mag10011-style', get_stylesheet_uri(), array(), $version );
 
-	// New Style 2
-	wp_enqueue_style( 'style2', get_template_directory_uri() . '/style2.css', array(), '1.0' );
+	// Magazine layout styles.
+	wp_enqueue_style( 'mag10011-style2', get_template_directory_uri() . '/style2.css', array( 'mag10011-style' ), $version );
 
-	// Jetpack CSS
-	wp_enqueue_style( 'jetpack-css', get_template_directory_uri() . '/jetpack.css', array(), '1.0' );
+	// Styles for Jetpack features such as the social menu.
+	wp_enqueue_style( 'mag10011-jetpack', get_template_directory_uri() . '/jetpack.css', array( 'mag10011-style2' ), $version );
+
+	// Header and WooCommerce layout adjustments.
+	wp_enqueue_style( 'mag10011-overrides', get_template_directory_uri() . '/css/overrides.css', array( 'mag10011-jetpack' ), $version );
 
 	wp_enqueue_script( 'mag10011-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20150302', true );
 
@@ -243,7 +269,10 @@ function mag10011_scripts() {
 		wp_enqueue_script( 'mag10011-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150302' );
 	}
 
-	wp_enqueue_script( 'mag10011-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150302', true );
+	wp_enqueue_script( 'mag10011-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), $version, true );
+
+	// Pins the widget area on scroll. It does nothing on pages without the fixed widget area.
+	wp_enqueue_script( 'mag10011-fixed-nav', get_template_directory_uri() . '/js/fixed-nav.js', array( 'jquery' ), $version, true );
 
 	wp_localize_script( 'mag10011-script', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', '10011mag' ) . '</span>',
@@ -320,7 +349,6 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 
-###################################################################################
 
 
 /**
@@ -328,30 +356,12 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/meta-boxes.php';
 
-function themename_custom_logo_setup() {
-    $defaults = array(
-        'height'      => 100,
-        'width'       => 400,
-        'flex-height' => true,
-        'flex-width'  => true,
-        'header-text' => array( 'site-title', 'site-description' ),
-    );
-    add_theme_support( 'custom-logo', $defaults );
-}
-add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 
-function buy_guides_init() {
-	#register_taxonomy( 'buy-guides', 'post', array( 'label' => __( 'Buy Guide' ), 'rewrite' => array( 'slug' => 'buy-guides' ), ) );
 
-	/*register_post_type( 'product', array(
-		'labels' => array( 'name' => __( 'Products' ), 'singular_name' => __( 'Product' ) ),
-		'public' => true,
-		'has_archive' => false,
-		'rewrite' => array('slug' => 'buy'),
-		'supports' => array("title", "author", "thumbnail", "excerpt"),
-		'taxonomies' => array("post_tag", "category"),
-	) );*/
-	
+/**
+ * Registers the Gift Guide taxonomy for products.
+ */
+function mag10011_register_gift_guides() {
 	$labels = array(
 		'name'              => _x( 'Gift Guides', 'taxonomy general name', '10011mag' ),
 		'singular_name'     => _x( 'Gift Guide', 'taxonomy singular name', '10011mag' ),
@@ -362,51 +372,57 @@ function buy_guides_init() {
 		'edit_item'         => __( 'Edit Gift Guide', '10011mag' ),
 		'update_item'       => __( 'Update Gift Guide', '10011mag' ),
 		'add_new_item'      => __( 'Add New Gift Guide', '10011mag' ),
-		'new_item_name'     => __( 'New Gift Guide', '10011mag' ),
-		'menu_name'         => __( 'Gift Guide', '10011mag' ),
+		'new_item_name'     => __( 'New Gift Guide Name', '10011mag' ),
+		'menu_name'         => __( 'Gift Guides', '10011mag' ),
 	);
 
-	$args = array(
-		'hierarchical'      => true,
-		'labels'            => $labels,
-		'show_in_rest'		=> true,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'buy-guides' ),
+	register_taxonomy(
+		'productguide',
+		array( 'product' ),
+		array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_in_rest'      => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'buy-guides' ),
+		)
 	);
-
-	register_taxonomy( 'productguide', array( 'product' ), $args );
-
-} add_action( 'init', 'buy_guides_init' );
-
-function remove_support_product() {
-	remove_post_type_support( 'product', 'revisions' );
-	remove_post_type_support( 'product', 'comments' );
-} #add_action( 'init', 'remove_support_product' );
+}
+add_action( 'init', 'mag10011_register_gift_guides' );
 
 
-###################################################################################
 
+/**
+ * Replaces the WooCommerce sidebar with the theme's fixed widget area.
+ */
+function mag10011_woocommerce_sidebar() {
+	?>
+	<div id="fixednav" class="fixed-nav"><div class="fixed-nav-wrap">
+		<?php
+		if ( is_active_sidebar( 'sidebar-2' ) ) {
+			dynamic_sidebar( 'sidebar-2' );
+		}
+		?>
+	</div></div>
+	<?php
+}
+add_action( 'woocommerce_sidebar', 'mag10011_woocommerce_sidebar' );
 
-add_theme_support( 'woocommerce' );
-add_theme_support( 'wc-product-gallery-zoom' );
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-slider' );
+/**
+ * Returns the extra body classes used by the header for full-screen featured posts.
+ *
+ * @return string
+ */
+function mag10011_header_body_class() {
+	if ( is_home() ) {
+		return 'blog has-fullscreen-featured-post';
+	}
 
-function woo_css() { ?><style type="text/css">
-	.woocommerce ul.products { display: grid; grid-template-columns: 31% 31% 31%; grid-column-gap: 30px; grid-row-gap: 30px; }
-	.woocommerce ul.products li.product { display: block !important; text-align: center; width: auto !important; float: none !important; grid-template-columns: auto !important; margin: 0; }
-	.woocommerce ul.products li.product .button { margin-bottom: 2em; }
-	.woocommerce .products ul::after, .woocommerce .products ul::before, .woocommerce ul.products::after, .woocommerce ul.products::before { display: none !important; }
+	if ( is_single() && 'featured' === get_post_meta( get_queried_object_id(), 'bb_featured', true ) ) {
+		return 'blog has-fullscreen-featured-post';
+	}
 
-	.woocommerce div.product { display: block !important; }
-	.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary { margin-right: 0; }
-	.entry-content { margin: 0; }
-</style><?php } add_action("wp_head", "woo_css");
-
-function new_woocommerce_sidebar() { ?>
-    <div id="fixednav" class="fixed-nav"><div class="fixed-nav-wrap">
-		<?php if ( is_active_sidebar( 'sidebar-2' ) ) : dynamic_sidebar( 'sidebar-2' ); endif; // sidebar 2 ?>
-    </div></div>
-<?php } add_action("woocommerce_sidebar", "new_woocommerce_sidebar");
+	return '';
+}

@@ -14,7 +14,8 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '10011mag' ), get_search_query() ); ?></h1>
+				<h1 class="page-title"><?php /* translators: %s: Search query. */
+					printf( esc_html__( 'Search Results for: %s', '10011mag' ), esc_html( get_search_query( false ) ) ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php

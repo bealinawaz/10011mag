@@ -19,7 +19,7 @@
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					</div>
 					<div class="scroll-indicator-wrapper">
-						<a href="#" id="scroll-indicator" class="scroll-indicator"><span class="screen-reader-text"><?php _e( 'Scroll down to see more content', '10011mag' );?></span></a>
+						<a href="#" id="scroll-indicator" class="scroll-indicator"><span class="screen-reader-text"><?php esc_html_e( 'Scroll down to see more content', '10011mag' );?></span></a>
 					</div>
 				</header>
 			</div>

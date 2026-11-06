@@ -30,7 +30,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
             
             <div class="active-product-categories"></div>
-            <div id="main" class="product-grid-wrap" style="position: relative;">
+            <div id="product-grid" class="product-grid-wrap" style="position: relative;">
 
 				<?php // Start the Loop.
                 while ( have_posts() ) : the_post();

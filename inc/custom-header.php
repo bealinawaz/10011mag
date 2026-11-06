@@ -140,7 +140,7 @@ if ( ! function_exists( 'mag10011_admin_header_image' ) ) :
  * @see mag10011_custom_header_setup().
  */
 function mag10011_admin_header_image() {
-	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
+	$style = sprintf( ' style="color:#%s;"', esc_attr( get_header_textcolor() ) );
 ?>
 	<div id="headimg">
 		<?php if ( get_header_image() ) : ?>
@@ -149,8 +149,8 @@ function mag10011_admin_header_image() {
 		</div>
 		<?php endif; ?>
 		<div class="displaying-header-wrapper">
-			<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-			<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
+			<h1 class="displaying-header-text"><a id="name"<?php echo $style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped when built. ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+			<div class="displaying-header-text" id="desc"<?php echo $style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped when built. ?>><?php bloginfo( 'description' ); ?></div>
 		</div>
 	</div>
 <?php

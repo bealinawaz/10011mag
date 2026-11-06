@@ -18,7 +18,7 @@
 
 		<?php if ( has_nav_menu( 'primary' ) ) : ?>
 			<nav class="main-navigation" role="navigation">
-				<h2 class="menu-heading widget-title"><?php _e( 'Menu', '10011mag' ); ?></h2>
+				<h2 class="menu-heading widget-title"><?php esc_html_e( 'Menu', '10011mag' ); ?></h2>
 				<?php
 					// Primary navigation menu.
 					wp_nav_menu( array(

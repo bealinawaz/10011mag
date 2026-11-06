@@ -1,0 +1,26 @@
+/* Header over full-screen featured posts. */
+.blog.has-fullscreen-featured-post .site-header { position: absolute; z-index: 1001; }
+.blog.has-fullscreen-featured-post .site-header .menu a,
+.blog.has-fullscreen-featured-post .site-header .nav-menu a { color: #fff; }
+.blog.has-fullscreen-featured-post .sidebar-toggle:before { color: #fff; }
+.blog.has-fullscreen-featured-post .site-branding a img { -webkit-filter: invert(100%); filter: invert(100%); }
+
+.secondary-menus .jetpack-social-navigation a { font-size: 18px; padding: 0; }
+.site-header .nav-menu > li + li { border-color: hsla(0, 0%, 98%, .5); }
+.blog.has-fullscreen-featured-post .site-header .nav-menu ul li a { color: #000; }
+.fixed .fixed-nav .fixed-nav-wrap { width: 100%; }
+
+@media only screen and (max-width: 924px) {
+	.blog.has-fullscreen-featured-post .site-branding a img { -webkit-filter: invert(0%); filter: invert(0%); }
+	.blog.has-fullscreen-featured-post .sidebar-toggle:before { color: #000; }
+}
+
+/* WooCommerce product grid and single product. */
+.woocommerce ul.products { display: grid; grid-template-columns: 31% 31% 31%; grid-column-gap: 30px; grid-row-gap: 30px; }
+.woocommerce ul.products li.product { display: block !important; text-align: center; width: auto !important; float: none !important; grid-template-columns: auto !important; margin: 0; }
+.woocommerce ul.products li.product .button { margin-bottom: 2em; }
+.woocommerce .products ul::after, .woocommerce .products ul::before, .woocommerce ul.products::after, .woocommerce ul.products::before { display: none !important; }
+.woocommerce div.product { display: block !important; }
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary { margin-right: 0; }
+/* Previously printed in wp_head on every page, so it stays global. */
+.entry-content { margin: 0; }

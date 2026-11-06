@@ -29,13 +29,15 @@ get_header(); ?>
 
 			<?php
 			// Start the loop.
-			$count = 1; while ( have_posts() ) : the_post();
-			
-				$bb_featured = get_post_meta(get_the_ID(), "bb_featured", true);
-				
-				if($count == 1) {
+			$mag10011_count = 1;
+			while ( have_posts() ) :
+				the_post();
+
+				$mag10011_featured = get_post_meta( get_the_ID(), 'bb_featured', true );
+
+				if ( 1 === $mag10011_count ) {
 					if ( is_sticky() && ! is_paged() ) : get_template_part( 'content', 'sticky' ); else : get_template_part( 'content', "featured" ); endif;
-				} elseif($bb_featured == "featured") {
+				} elseif ( 'featured' === $mag10011_featured ) {
 					if ( is_sticky() && ! is_paged() ) : get_template_part( 'content', 'sticky' ); else : get_template_part( 'content', "featured" ); endif;
 				} else {
 					if ( is_sticky() && ! is_paged() ) :
@@ -51,7 +53,8 @@ get_header(); ?>
 				}
 
 			// End the loop.
-			$count++; endwhile;
+				$mag10011_count++;
+			endwhile;
 
 		// If no content, include the "No posts found" template.
 		else :

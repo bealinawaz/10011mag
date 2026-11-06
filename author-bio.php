@@ -24,14 +24,15 @@
 	</div><!-- .author-avatar -->
 
 	<div class="author-description">
-		<h2 class="author-heading"><?php _e( 'Published by', '10011mag' ); ?></h2>
+		<h2 class="author-heading"><?php esc_html_e( 'Published by', '10011mag' ); ?></h2>
 
-		<h3 class="author-title"><?php echo get_the_author(); ?></h3>
+		<h3 class="author-title"><?php echo esc_html( get_the_author() ); ?></h3>
 
 		<p class="author-bio">
 			<?php the_author_meta( 'description' ); ?>
 			<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				<?php printf( __( 'View all posts by %s', '10011mag' ), get_the_author() ); ?>
+				<?php /* translators: %s: Author name. */
+				printf( esc_html__( 'View all posts by %s', '10011mag' ), esc_html( get_the_author() ) ); ?>
 			</a>
 		</p><!-- .author-bio -->
 
