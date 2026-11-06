@@ -323,33 +323,10 @@ require get_template_directory() . '/inc/jetpack.php';
 ###################################################################################
 
 
-require "components.php";
-require "metaboxes.php";
-
-#BB_METABOX_ARR
-function BB_METABOX_ARR() { return array( #BB_METABOX_ARR
-
-	array( #METABOX
-		"id" => "bb-post-options", "title" => "Post Options",
-		"pages" => array( "post" ), "context" => "normal", "priority" => "default",
-		"option" =>  array( #OPTION
-			array ("type" => "select", "title" => "Is post feature?", "description" => "chosoe the option.", "id" => "bb_featured", "class" => "bb_featured", "name" => "bb_featured", "option" => array("not_featured" => "Not Featured", "featured" => "Featured"), "default_value" => "", ),
-			array ("type" => "text", "title" => "Post Sub Title", "description" => "write the text.", "id" => "bb_sub_title", "class" => "bb_sub_title", "name" => "bb_sub_title", "default_value" => "", ),
-		), #OPTION
-	), #METABOX
-
-	array( #METABOX
-		"id" => "bb-product-options", "title" => "Product Options",
-		"pages" => array( "product" ), "context" => "normal", "priority" => "default",
-		"option" =>  array( #OPTION
-			array ("type" => "text", "title" => "Brand Name", "description" => "write the text.", "id" => "product-brand-name", "class" => "product-brand-name", "name" => "product-brand-name", "default_value" => "", ),
-			array ("type" => "text", "title" => "Brand Link", "description" => "write the link.", "id" => "product-brand-link", "class" => "product-brand-link", "name" => "product-brand-link", "default_value" => "", ),
-
-			array ("type" => "text", "title" => "Buy Link", "description" => "write the link.", "id" => "product-buy-link", "class" => "product-buy-link", "name" => "product-buy-link", "default_value" => "", ),
-		), #OPTION
-	), #METABOX
-
-); } #BB_METABOX_ARR
+/**
+ * Post and product option meta boxes.
+ */
+require get_template_directory() . '/inc/meta-boxes.php';
 
 function themename_custom_logo_setup() {
     $defaults = array(
