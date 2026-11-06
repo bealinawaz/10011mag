@@ -92,7 +92,7 @@ function mag10011_setup() {
 
 	// Style the editor to resemble the front end: fonts, colors, icons and column width.
 	add_theme_support( 'editor-styles' );
-	add_editor_style( array( 'editor-style.css', 'genericons/genericons.css', mag10011_fonts_url() ) );
+	add_editor_style( array( 'editor-style.css', 'genericons/genericons.css', 'css/fonts.css' ) );
 }
 endif; // mag10011_setup
 add_action( 'after_setup_theme', 'mag10011_setup' );
@@ -166,59 +166,17 @@ function mag10011_widgets_init() {
 	) );
 } add_action( 'widgets_init', 'mag10011_widgets_init' );
 
-if ( ! function_exists( 'mag10011_fonts_url' ) ) :
 /**
- * Register Google fonts for Resonar.
+ * Returns the URL of the self-hosted font stylesheet.
  *
- * @since Resonar 1.0
+ * The fonts (Libre Baskerville, Lato, Playfair Display and Inconsolata) are bundled
+ * in /fonts/, so visitors' browsers don't contact Google Fonts.
  *
- * @return string Google fonts URL for the theme.
+ * @return string
  */
 function mag10011_fonts_url() {
-	$fonts_url = '';
-	$fonts     = array();
-	$subsets   = 'latin,latin-ext';
-
-	/* translators: If there are characters in your language that are not supported by Libre Baskerville, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Libre Baskerville font: on or off', '10011mag' ) ) {
-		$fonts[] = 'Libre Baskerville:400,700,400italic';
-	}
-
-	/* translators: If there are characters in your language that are not supported by Lato, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Lato font: on or off', '10011mag' ) ) {
-		$fonts[] = 'Lato:400,700,900,400italic,700italic,900italic';
-	}
-
-	/* translators: If there are characters in your language that are not supported by Playfair Display, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', '10011mag' ) ) {
-		$fonts[] = 'Playfair Display:400,700,400italic,700italic';
-	}
-
-	/* translators: If there are characters in your language that are not supported by Inconsolata, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', '10011mag' ) ) {
-		$fonts[] = 'Inconsolata:400';
-	}
-
-	/*
-	 * Translators: To add an additional character subset specific to your language,
-	 * translate this to 'cyrillic'. Do not translate into your own language.
-	 */
-	$subset = _x( 'no-subset', 'Add new subset (cyrillic)', '10011mag' );
-
-	if ( 'cyrillic' == $subset ) {
-		$subsets .= ',cyrillic';
-	}
-
-	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-		), 'https://fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;
+	return get_template_directory_uri() . '/css/fonts.css';
 }
-endif;
 
 /**
  * JavaScript Detection.
@@ -240,7 +198,7 @@ add_action( 'wp_head', 'mag10011_javascript_detection', 0 );
  */
 function mag10011_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'mag10011-fonts', mag10011_fonts_url(), array(), null );
+	wp_enqueue_style( 'mag10011-fonts', mag10011_fonts_url(), array(), wp_get_theme( get_template() )->get( 'Version' ) );
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.3' );
@@ -292,7 +250,7 @@ function mag10011_scripts() {
  * @since Resonar 1.0
  */
 function mag10011_admin_fonts() {
-	wp_enqueue_style( 'mag10011-fonts', mag10011_fonts_url(), array(), null );
+	wp_enqueue_style( 'mag10011-fonts', mag10011_fonts_url(), array(), wp_get_theme( get_template() )->get( 'Version' ) );
 }
 add_action( 'admin_print_scripts-appearance_page_custom-header', 'mag10011_admin_fonts' );
 

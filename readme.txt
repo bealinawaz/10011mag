@@ -93,3 +93,4 @@ See CHANGELOG.md.
 
 * Resonar theme by Automattic, https://automattic.com/, licensed under GPL v2 or later.
 * Genericons icon font by Automattic, https://automattic.com/, licensed under GPL v2 or later.
+* Libre Baskerville, Lato, Playfair Display and Inconsolata fonts, bundled in /fonts/, licensed under the SIL Open Font License 1.1 (see fonts/OFL.txt).
