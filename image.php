@@ -2,7 +2,7 @@
 /**
  * The template for displaying image attachments
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 
@@ -21,7 +21,7 @@ get_header(); ?>
 					<?php if ( $post->post_parent ) { ?>
 					<nav id="image-navigation" class="navigation image-navigation">
 						<div class="nav-links">
-							<div class="nav-previous"><?php previous_image_link( false, __( 'Previous Image', 'resonar' ) ); ?></div><div class="nav-next"><?php next_image_link( false, __( 'Next Image', 'resonar' ) ); ?></div>
+							<div class="nav-previous"><?php previous_image_link( false, __( 'Previous Image', '10011mag' ) ); ?></div><div class="nav-next"><?php next_image_link( false, __( 'Next Image', '10011mag' ) ); ?></div>
 						</div><!-- .nav-links -->
 					</nav><!-- .image-navigation -->
 					<?php } ?>
@@ -42,9 +42,9 @@ get_header(); ?>
 									 *
 									 * @param string $image_size Image size. Default 'large'.
 									 */
-									$image_size = apply_filters( 'resonar_attachment_size', 'large' );
+									$mag10011_image_size = apply_filters( 'mag10011_attachment_size', 'large' );
 
-									echo wp_get_attachment_image( get_the_ID(), $image_size );
+									echo wp_get_attachment_image( get_the_ID(), $mag10011_image_size );
 								?>
 
 								<?php if ( has_excerpt() ) : ?>
@@ -58,19 +58,19 @@ get_header(); ?>
 							<?php
 								the_content();
 								wp_link_pages( array(
-									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'resonar' ) . '</span>',
+									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', '10011mag' ) . '</span>',
 									'after'       => '</div>',
 									'link_before' => '<span>',
 									'link_after'  => '</span>',
-									'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'resonar' ) . ' </span>%',
+									'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', '10011mag' ) . ' </span>%',
 									'separator'   => '<span class="screen-reader-text">, </span>',
 								) );
 							?>
 						</div><!-- .entry-content -->
 
 						<footer class="entry-footer">
-							<?php resonar_entry_meta(); ?>
-							<?php edit_post_link( __( 'Edit', 'resonar' ), '<span class="edit-link">', '</span>' ); ?>
+							<?php mag10011_entry_meta(); ?>
+							<?php edit_post_link( __( 'Edit', '10011mag' ), '<span class="edit-link">', '</span>' ); ?>
 						</footer><!-- .entry-footer -->
 					</div>
 
@@ -84,7 +84,7 @@ get_header(); ?>
 
 					// Parent post navigation
 					the_post_navigation( array(
-						'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'resonar' ),
+						'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', '10011mag' ),
 					) );
 				// End the loop.
 				endwhile;

@@ -11,7 +11,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 
@@ -30,7 +30,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
             
             <div class="active-product-categories"></div>
-            <div id="main" class="product-grid-wrap" style="position: relative;">
+            <div id="product-grid" class="product-grid-wrap" style="position: relative;">
 
 				<?php // Start the Loop.
                 while ( have_posts() ) : the_post();
@@ -64,9 +64,9 @@ get_header(); ?>
 		if ( have_posts() ) :
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'resonar' ),
-				'next_text'          => __( 'Next page', 'resonar' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'resonar' ) . ' </span>',
+				'prev_text'          => __( 'Previous page', '10011mag' ),
+				'next_text'          => __( 'Next page', '10011mag' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', '10011mag' ) . ' </span>',
 			) );
 		endif;
 	?>

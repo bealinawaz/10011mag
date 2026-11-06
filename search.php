@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages.
  *
- * @package Resonar
+ * @package 10011mag
  * @since Resonar 1.0
  */
 
@@ -14,7 +14,8 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'resonar' ), get_search_query() ); ?></h1>
+				<h1 class="page-title"><?php /* translators: %s: Search query. */
+					printf( esc_html__( 'Search Results for: %s', '10011mag' ), esc_html( get_search_query( false ) ) ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php
@@ -39,9 +40,9 @@ get_header(); ?>
 		if ( have_posts() ) :
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'resonar' ),
-				'next_text'          => __( 'Next page', 'resonar' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'resonar' ) . ' </span>',
+				'prev_text'          => __( 'Previous page', '10011mag' ),
+				'next_text'          => __( 'Next page', '10011mag' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', '10011mag' ) . ' </span>',
 			) );
 		endif;
 	?>
