@@ -1,0 +1,424 @@
+# Copyright (C) 2026 Ali Nawaz
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: 10011MAG 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/10011mag\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-06T19:30:39+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: 10011mag\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "10011MAG"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/bealinawaz/10011mag"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A magazine and product-guide theme with full-screen featured images, gift guides and WooCommerce support. Based on Resonar by Automattic."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Ali Nawaz"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://bealinawaz.com"
+msgstr ""
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:20
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:60
+#: index.php:76
+#: search.php:43
+#: taxonomy-productguide.php:67
+msgid "Previous page"
+msgstr ""
+
+#: archive.php:61
+#: index.php:77
+#: search.php:44
+#: taxonomy-productguide.php:68
+msgid "Next page"
+msgstr ""
+
+#: archive.php:62
+#: content-page.php:44
+#: content-single.php:13
+#: image.php:65
+#: index.php:78
+#: search.php:45
+#: taxonomy-productguide.php:69
+msgid "Page"
+msgstr ""
+
+#: author-bio.php:27
+msgid "Published by"
+msgstr ""
+
+#. translators: %s: Author name.
+#: author-bio.php:35
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#. translators: %s: Post title.
+#: comments.php:30
+#, php-format
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr ""
+
+#. translators: 1: Number of comments, 2: Post title.
+#: comments.php:34
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:62
+msgid "Comments are closed."
+msgstr ""
+
+#: content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: %1$s: Link to the new post screen.
+#: content-none.php:26
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:36
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: content-none.php:41
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: content-page.php:22
+#: inc/template-tags.php:314
+msgid "Scroll down to see more content"
+msgstr ""
+
+#: content-page.php:40
+#: content-single.php:9
+#: image.php:61
+msgid "Pages:"
+msgstr ""
+
+#: content-page.php:50
+#: image.php:73
+msgid "Edit"
+msgstr ""
+
+#: content-productguide.php:30
+msgid "Expand product description"
+msgstr ""
+
+#: content-productguide.php:35
+#: content-single.php:46
+msgid "Added:"
+msgstr ""
+
+#: content-productguide.php:38
+msgid "Buy"
+msgstr ""
+
+#: content-single.php:51
+msgid "Categories"
+msgstr ""
+
+#: content-single.php:52
+msgid "Posted in"
+msgstr ""
+
+#: content-single.php:58
+#: functions.php:334
+msgid "Gift Guides"
+msgstr ""
+
+#: content-single.php:59
+msgid "Gift Guides:"
+msgstr ""
+
+#: content-single.php:65
+msgid "Tags"
+msgstr ""
+
+#: functions.php:51
+#: header.php:57
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:52
+#: header.php:40
+msgid "Social Links Menu"
+msgstr ""
+
+#: functions.php:53
+#: header.php:29
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:150
+msgid "Widget Area"
+msgstr ""
+
+#: functions.php:152
+#: functions.php:161
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:159
+msgid "Sidebar Area"
+msgstr ""
+
+#: functions.php:236
+msgid "expand child menu"
+msgstr ""
+
+#: functions.php:237
+msgid "collapse child menu"
+msgstr ""
+
+#: functions.php:241
+#: sidebar.php:21
+msgid "Menu"
+msgstr ""
+
+#: functions.php:242
+#: header.php:56
+msgid "Widgets"
+msgstr ""
+
+#: functions.php:243
+msgid "Menu &amp; Widgets"
+msgstr ""
+
+#: functions.php:324
+msgctxt "taxonomy general name"
+msgid "Gift Guides"
+msgstr ""
+
+#: functions.php:325
+msgctxt "taxonomy singular name"
+msgid "Gift Guide"
+msgstr ""
+
+#: functions.php:326
+msgid "Search Gift Guides"
+msgstr ""
+
+#: functions.php:327
+msgid "All Gift Guides"
+msgstr ""
+
+#: functions.php:328
+msgid "Parent Gift Guide"
+msgstr ""
+
+#: functions.php:329
+msgid "Parent Gift Guide:"
+msgstr ""
+
+#: functions.php:330
+msgid "Edit Gift Guide"
+msgstr ""
+
+#: functions.php:331
+msgid "Update Gift Guide"
+msgstr ""
+
+#: functions.php:332
+msgid "Add New Gift Guide"
+msgstr ""
+
+#: functions.php:333
+msgid "New Gift Guide Name"
+msgstr ""
+
+#: header.php:25
+msgid "Skip to content"
+msgstr ""
+
+#: image.php:24
+msgid "Previous Image"
+msgstr ""
+
+#: image.php:24
+msgid "Next Image"
+msgstr ""
+
+#: image.php:87
+msgctxt "Parent post link"
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%title</span>"
+msgstr ""
+
+#: inc/customizer.php:20
+msgid "Tagline is hidden in this theme."
+msgstr ""
+
+#: inc/meta-boxes.php:18
+msgid "Post Options"
+msgstr ""
+
+#: inc/meta-boxes.php:22
+msgid "Featured layout"
+msgstr ""
+
+#: inc/meta-boxes.php:25
+msgid "Not featured"
+msgstr ""
+
+#: inc/meta-boxes.php:26
+#: inc/template-tags.php:47
+msgid "Featured"
+msgstr ""
+
+#: inc/meta-boxes.php:30
+msgid "Subtitle"
+msgstr ""
+
+#: inc/meta-boxes.php:36
+msgid "Product Options"
+msgstr ""
+
+#: inc/meta-boxes.php:40
+msgid "Brand name"
+msgstr ""
+
+#: inc/meta-boxes.php:44
+msgid "Brand link"
+msgstr ""
+
+#: inc/meta-boxes.php:48
+msgid "Buy link"
+msgstr ""
+
+#: inc/template-tags.php:21
+msgid "Comment navigation"
+msgstr ""
+
+#: inc/template-tags.php:24
+msgid "Older Comments"
+msgstr ""
+
+#: inc/template-tags.php:28
+msgid "Newer Comments"
+msgstr ""
+
+#: inc/template-tags.php:65
+msgctxt "Used before publish date."
+msgid "Posted on"
+msgstr ""
+
+#: inc/template-tags.php:81
+#: inc/template-tags.php:89
+#: inc/template-tags.php:101
+#: inc/template-tags.php:109
+msgctxt "Used between list items, there is a space after the comma."
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:84
+msgctxt "Used before category names."
+msgid "Categories"
+msgstr ""
+
+#: inc/template-tags.php:92
+msgctxt "Used before tag names."
+msgid "Tags"
+msgstr ""
+
+#: inc/template-tags.php:104
+msgctxt "Used before project type names."
+msgid "Project Types"
+msgstr ""
+
+#: inc/template-tags.php:112
+msgctxt "Used before project tag names."
+msgid "Project Tags"
+msgstr ""
+
+#: inc/template-tags.php:123
+msgctxt "Used before full size attachment link."
+msgid "Full size"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "% Comments"
+msgstr ""
+
+#. translators: %s: Post title.
+#: inc/template-tags.php:210
+#, php-format
+msgid "Continue reading %s"
+msgstr ""
+
+#: inc/template-tags.php:240
+msgid "Posted by"
+msgstr ""
+
+#. translators: %s: Author name.
+#: inc/template-tags.php:243
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/template-tags.php:249
+#: inc/template-tags.php:285
+msgid "Posted on"
+msgstr ""
+
+#. translators: %s: Search query.
+#: search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: single.php:27
+msgid "Next"
+msgstr ""
+
+#: single.php:28
+msgid "Next post:"
+msgstr ""
+
+#: single.php:30
+msgid "Previous"
+msgstr ""
+
+#: single.php:31
+msgid "Previous post:"
+msgstr ""
