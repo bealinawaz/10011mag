@@ -19,30 +19,6 @@ function mag10011_jetpack_setup() {
 add_action( 'after_setup_theme', 'mag10011_jetpack_setup' );
 
 /**
- * Add support for the Site Logo
- *
- * @since Resonar 1.0
- */
-function mag10011_site_logo_init() {
-	add_image_size( 'mag10011-logo', 192, 192 );
-	add_theme_support( 'site-logo', array( 'size' => 'mag10011-logo' ) );
-}
-add_action( 'after_setup_theme', 'mag10011_site_logo_init' );
-
-/**
- * Return early if Site Logo is not available.
- *
- * @since Resonar 1.0
- */
-function mag10011_the_site_logo() {
-	if ( ! function_exists( 'jetpack_the_site_logo' ) ) {
-		return;
-	} else {
-		jetpack_the_site_logo();
-	}
-}
-
-/**
  * Add theme support for Responsive Videos
  *
  * @since Resonar 1.0

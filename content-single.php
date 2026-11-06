@@ -53,13 +53,11 @@ $mag10011_page_links = array(
 				<?php the_terms( get_the_ID(), 'category', '', ' ' ); ?>
 			</span>
 
-			<?php if ( taxonomy_exists( 'productguide' ) && has_term( '', 'productguide' ) ) : ?>
-				<span class="cat-links productguide-links">
-					<span class="screen-reader-text"><?php esc_html_e( 'Gift Guides', '10011mag' ); ?></span>
-					<span class="posted-in-text"><?php esc_html_e( 'Gift Guides:', '10011mag' ); ?> </span>
-					<?php the_terms( get_the_ID(), 'productguide', '', ' ' ); ?>
-				</span>
-			<?php endif; ?>
+			<span class="cat-links productguide-links">
+				<span class="screen-reader-text"><?php esc_html_e( 'Gift Guides', '10011mag' ); ?></span>
+				<span class="posted-in-text"><?php esc_html_e( 'Gift Guides:', '10011mag' ); ?> </span>
+				<?php the_terms( get_the_ID(), 'productguide', '', ' ' ); ?>
+			</span>
 
 			<span class="tags-links">
 				<span class="screen-reader-text"><?php esc_html_e( 'Tags', '10011mag' ); ?></span>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Resonar functions and definitions
+ * 10011MAG functions and definitions (based on Resonar by Automattic)
  *
  * @package 10011mag
  * @since Resonar 1.0
@@ -90,8 +90,7 @@ function mag10011_setup() {
 		'wp-head-callback' => 'mag10011_custom_background_cb'
 	) ) );
 
-	// Style the editor to resemble the front end: fonts, colors, icons and column width.
-	add_theme_support( 'editor-styles' );
+	// Style the classic editor to resemble the front end: fonts, colors, icons and column width.
 	add_editor_style( array( 'editor-style.css', 'genericons/genericons.css', 'css/fonts.css' ) );
 }
 endif; // mag10011_setup
@@ -186,8 +185,7 @@ function mag10011_fonts_url() {
  * @since Resonar 1.0
  */
 function mag10011_javascript_detection() {
-	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
-	?><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><?php
+	wp_print_inline_script_tag( "(function(html){html.className = html.className.replace(/\\bno-js\\b/,'js')})(document.documentElement);" );
 }
 add_action( 'wp_head', 'mag10011_javascript_detection', 0 );
 
@@ -217,14 +215,14 @@ function mag10011_scripts() {
 	// Header and WooCommerce layout adjustments.
 	wp_enqueue_style( 'mag10011-overrides', get_template_directory_uri() . '/css/overrides.css', array( 'mag10011-jetpack' ), $version );
 
-	wp_enqueue_script( 'mag10011-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20150302', true );
+	wp_enqueue_script( 'mag10011-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), $version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'mag10011-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150302' );
+		wp_enqueue_script( 'mag10011-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), $version, true );
 	}
 
 	wp_enqueue_script( 'mag10011-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), $version, true );

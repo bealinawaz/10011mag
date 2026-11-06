@@ -11,10 +11,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
-		if ( has_post_thumbnail() && ! post_password_required() ) :
-			$featuredimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'mag10011-large' );
+		$mag10011_featured_image = has_post_thumbnail() && ! post_password_required() ? get_the_post_thumbnail_url( null, 'mag10011-large' ) : false;
+		if ( $mag10011_featured_image ) :
 	?>
-		<div class="entry-header-background" style="background-image:url(<?php echo esc_url( $featuredimage[0] ); ?>)">
+		<div class="entry-header-background" style="background-image:url(<?php echo esc_url( $mag10011_featured_image ); ?>)">
 			<div class="entry-header-wrapper">
 				<header class="entry-header">
 					<div class="entry-header-inner">

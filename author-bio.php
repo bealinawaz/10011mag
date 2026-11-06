@@ -17,9 +17,9 @@
 		 *
 		 * @param int $size The avatar height and width size in pixels.
 		 */
-		$author_bio_avatar_size = apply_filters( 'mag10011_author_bio_avatar_size', 64 );
+		$mag10011_avatar_size = apply_filters( 'mag10011_author_bio_avatar_size', 64 );
 
-		echo get_avatar( get_the_author_meta( 'user_email' ), $author_bio_avatar_size );
+		echo get_avatar( get_the_author_meta( 'user_email' ), $mag10011_avatar_size );
 		?>
 	</div><!-- .author-avatar -->
 

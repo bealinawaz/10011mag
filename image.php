@@ -42,9 +42,9 @@ get_header(); ?>
 									 *
 									 * @param string $image_size Image size. Default 'large'.
 									 */
-									$image_size = apply_filters( 'mag10011_attachment_size', 'large' );
+									$mag10011_image_size = apply_filters( 'mag10011_attachment_size', 'large' );
 
-									echo wp_get_attachment_image( get_the_ID(), $image_size );
+									echo wp_get_attachment_image( get_the_ID(), $mag10011_image_size );
 								?>
 
 								<?php if ( has_excerpt() ) : ?>

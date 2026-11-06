@@ -137,3 +137,29 @@ function mag10011_save_meta_boxes( $post_id ) {
 	}
 }
 add_action( 'save_post', 'mag10011_save_meta_boxes' );
+
+/**
+ * Registers the meta keys so values saved through other paths (such as the Custom Fields panel) are sanitised too.
+ */
+function mag10011_register_meta() {
+	foreach ( mag10011_meta_box_definitions() as $box ) {
+		foreach ( $box['post_types'] as $post_type ) {
+			foreach ( $box['fields'] as $key => $field ) {
+				register_post_meta(
+					$post_type,
+					$key,
+					array(
+						'type'              => 'string',
+						'single'            => true,
+						'show_in_rest'      => false,
+						'sanitize_callback' => 'url' === $field['type'] ? 'esc_url_raw' : 'sanitize_text_field',
+						'auth_callback'     => static function ( $allowed, $meta_key, $post_id ) {
+							return current_user_can( 'edit_post', $post_id );
+						},
+					)
+				);
+			}
+		}
+	}
+}
+add_action( 'init', 'mag10011_register_meta' );

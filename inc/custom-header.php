@@ -40,8 +40,8 @@ function mag10011_header_style() {
 	$header_image = get_header_image();
 
 	// If no custom options for text are set, let's bail
-	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-	if ( HEADER_TEXTCOLOR == $header_text_color && empty( $header_image ) ) {
+	// get_header_textcolor() returns the default color, 'blank' (text hidden) or any hex value.
+	if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color && empty( $header_image ) ) {
 		return;
 	}
 

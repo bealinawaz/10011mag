@@ -42,16 +42,16 @@
 			</nav><!-- .jetpack-social-navigation -->
 		</div>
 		<div class="site-branding">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo-link" rel="home">
-				<?php
-				$mag10011_logo = has_custom_logo() ? wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' ) : false;
-				if ( $mag10011_logo ) :
-					?>
+			<?php
+			$mag10011_logo = has_custom_logo() ? wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' ) : false;
+			if ( $mag10011_logo ) :
+				?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo-link" rel="home">
 					<img width="300" height="113" src="<?php echo esc_url( $mag10011_logo[0] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" sizes="(max-width: 300px) 100vw, 300px">
-				<?php else : ?>
-					<span class="site-title"><?php bloginfo( 'name' ); ?></span>
-				<?php endif; ?>
-			</a>
+				</a>
+			<?php else : ?>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<?php endif; ?>
 		</div><!-- .site-branding -->
 		<button id="sidebar-toggle" class="sidebar-toggle" aria-expanded="false"><?php esc_html_e( 'Widgets', '10011mag' ); ?></button>
 		<nav class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', '10011mag' ); ?>">
